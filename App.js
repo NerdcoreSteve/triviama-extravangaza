@@ -15,9 +15,11 @@ const textStyle = {
 const styles = {
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+  },
+  innerContainer: {
+    flex: 1,
     alignItems: 'center',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
   },
   text: textStyle,
   header: {
@@ -31,13 +33,13 @@ const styles = {
 }
 
 export default () =>
-  <View>
+  <View style={styles.container}>
   <Header style={styles.header}
     centerComponent={{
       text: 'Trivia Challenge',
       style: styles.header.text
     }}/>
-    <View style={styles.container}>
+    <View style={styles.innerContainer}>
       <Text
         style={{...styles.text, fontWeight: 'bold'}}>
           Welcome To The{"\n"}Trivia Challenge!
