@@ -1,53 +1,13 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import { Header } from 'react-native-elements'
-import Button from 'react-native-button'
+import {createStore} from 'redux'
+import {Provider} from 'react-redux'
 
-import {createStore, applyMiddleware} from 'redux'
-import {Provider, connect} from 'react-redux'
-import PropTypes from 'prop-types'
+import Main from './Main'
+import reducer from './reducer'
 
-const textStyle = {
-  fontSize: 30,
-  textAlign: 'center',
-}
-
-const styles = {
-  container: {
-    flex: 1,
-  },
-  innerContainer: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  text: textStyle,
-  header: {
-    paddingTop: 100,
-    width: '100%',
-    text: {
-      ...textStyle,
-      color: '#fff',
-    }
-  }
-}
+const store = createStore(reducer)
 
 export default () =>
-  <View style={styles.container}>
-  <Header style={styles.header}
-    centerComponent={{
-      text: 'Trivia Challenge',
-      style: styles.header.text
-    }}/>
-    <View style={styles.innerContainer}>
-      <Text
-        style={{...styles.text, fontWeight: 'bold'}}>
-          Welcome To The{"\n"}Trivia Challenge!
-        </Text>
-      <Text style={styles.text}>
-        You Will be presented with 10 True or False Questions.
-      </Text>
-      <Text style={styles.text}>Can you score 100%?</Text>
-      <Button style={styles.text}>BEGIN</Button>
-    </View>
-  </View>
+  <Provider store={store}>
+    <Main/>
+  </Provider>
