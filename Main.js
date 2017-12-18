@@ -1,22 +1,29 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {View} from 'react-native'
+import {View, Text} from 'react-native'
 
 import Header from './Header'
 import StartScreen from './StartScreen'
+import QuestionsScreen from './QuestionsScreen'
 import styles from './styles'
+
+const display = {
+  start: <StartScreen/>,
+  questions: <QuestionsScreen/>,
+}
 
 const style = {
   container: {
     flex: 1,
   }
 }
-
-const Main = state =>
+const Main = ({screen}) =>
   <View style={style.container}>
     <Header/>
-    <StartScreen/>
+    {display[screen]}
   </View>
 
-export default connect(({state}) => ({state}))(Main)
+const mapStateToProps = ({screen}) => ({screen})
+
+export default connect(mapStateToProps)(Main)

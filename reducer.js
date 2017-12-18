@@ -1,5 +1,5 @@
 const initialState = {
-  state: 'start'
+  screen: 'start'
 }
 
 export default (state = initialState, action) => {
