@@ -63,7 +63,9 @@ const QuestionScreen =
             func2={() => answerAndGoToNextQuestion(false)}/>
         </View>
       </Card>
-      <Text style={style.pagination}>{questionNumber} of {numberOfQuestions}</Text>
+      <Text style={style.pagination}>
+        {`${questionNumber} of ${numberOfQuestions}`}
+      </Text>
     </View>
 
 const mapStateToProps =
