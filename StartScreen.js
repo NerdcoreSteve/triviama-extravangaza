@@ -1,4 +1,6 @@
 import React from 'react'
+import {connect} from 'react-redux'
+
 import {Text, View} from 'react-native'
 import Button from 'react-native-button'
 
@@ -16,7 +18,7 @@ const style = {
   }
 }
 
-export default () =>
+const StartScreen = ({changeScreen}) =>
   <View style={style.container}>
     <Text
       style={style.boldText}>
@@ -26,5 +28,14 @@ export default () =>
       You Will be presented with 10 True or False Questions.
     </Text>
     <Text style={styles.text}>Can you score 100%?</Text>
-    <Button style={styles.text}>BEGIN</Button>
+    <Button
+      style={styles.text}
+      onPress={() => changeScreen('questions')}>BEGIN</Button>
   </View>
+
+const mapStateToProps = ({}) => ({})
+const mapDispatchToProps = dispatch => ({
+  changeScreen: screen => dispatch({type: 'CHANGE_SCREEN', screen}),
+})
+
+  export default connect(mapStateToProps, mapDispatchToProps)(StartScreen)

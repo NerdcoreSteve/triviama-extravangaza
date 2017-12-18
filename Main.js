@@ -21,6 +21,7 @@ const style = {
 const Main = ({screen}) =>
   <View style={style.container}>
     <Header/>
+    {console.log(screen)}
     {display[screen]}
   </View>
 
