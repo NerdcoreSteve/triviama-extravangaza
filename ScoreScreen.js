@@ -18,19 +18,12 @@ const style = {
   }
 }
 
-const StartScreen = ({changeScreen}) =>
+const ScoreScreen = ({changeScreen}) =>
   <View style={style.container}>
     <Text
       style={style.boldText}>
-        Welcome To The{"\n"}Trivia Challenge!
-      </Text>
-    <Text style={styles.text}>
-      You Will be presented with 10 True or False Questions.
+        Score!
     </Text>
-    <Text style={styles.text}>Can you score 100%?</Text>
-    <Button
-      style={styles.text}
-      onPress={() => changeScreen('questions')}>BEGIN</Button>
   </View>
 
 const mapStateToProps = ({}) => ({})
@@ -38,4 +31,4 @@ const mapDispatchToProps = dispatch => ({
   changeScreen: screen => dispatch({type: 'CHANGE_SCREEN', screen}),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(StartScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(ScoreScreen)

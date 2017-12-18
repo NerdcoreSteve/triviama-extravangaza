@@ -6,11 +6,13 @@ import {View, Text} from 'react-native'
 import Header from './Header'
 import StartScreen from './StartScreen'
 import QuestionsScreen from './QuestionsScreen'
+import ScoreScreen from './ScoreScreen'
 import styles from './styles'
 
 const display = {
   start: <StartScreen/>,
   questions: <QuestionsScreen/>,
+  score: <ScoreScreen/>,
 }
 
 const style = {
@@ -18,10 +20,10 @@ const style = {
     flex: 1,
   }
 }
+
 const Main = ({screen}) =>
   <View style={style.container}>
     <Header/>
-    {console.log(screen)}
     {display[screen]}
   </View>
 
