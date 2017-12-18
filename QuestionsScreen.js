@@ -56,7 +56,7 @@ const QuestionScreen =
     numberOfQuestions,
     finalQuestion,
     answerAndGoToNextQuestion,
-    getScore
+    answerAndGetScore
   }) =>
     <View style={style.container}>
       <Text style={style.category}>{question.category}</Text>
@@ -66,12 +66,12 @@ const QuestionScreen =
           <FunctionFlagButton
             text='True'
             flag={finalQuestion}
-            func1={getScore}
-            func2={() => answerAndGoToNextQuestion(false)}/>
+            func1={() => answerAndGetScore(true)}
+            func2={() => answerAndGoToNextQuestion(true)}/>
           <FunctionFlagButton
             text='False'
             flag={finalQuestion}
-            func1={getScore}
+            func1={() => answerAndGetScore(false)}
             func2={() => answerAndGoToNextQuestion(false)}/>
         </View>
       </Card>
@@ -89,7 +89,8 @@ const mapStateToProps =
 const mapDispatchToProps = dispatch => ({
   answerAndGoToNextQuestion: answer =>
     dispatch({type: 'ANSWER_AND_GO_TO_NEXT_QUESTION', answer}),
-  getScore: () => dispatch({type: 'CHANGE_SCREEN', screen: 'score'}),
+  answerAndGetScore: answer =>
+    dispatch({type: 'ANSWER_AND_GET_SCORE', answer}),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(QuestionScreen)

@@ -18,17 +18,25 @@ const style = {
   }
 }
 
-const ScoreScreen = ({changeScreen}) =>
+const ScoreScreen = ({questions, score, restart}) =>
   <View style={style.container}>
     <Text
       style={style.boldText}>
-        Score!
+        {`You scored \n${score}/${questions.length}`}
     </Text>
+    <Button
+      style={styles.text}
+      onPress={restart}>
+        PLAY AGAIN?
+    </Button>
   </View>
 
-const mapStateToProps = ({}) => ({})
+const mapStateToProps = ({questions}) => ({
+  questions,
+  score: questions.filter(({got_correct_answer}) => got_correct_answer).length
+})
 const mapDispatchToProps = dispatch => ({
-  changeScreen: screen => dispatch({type: 'CHANGE_SCREEN', screen}),
+  restart: () => dispatch({type: 'RESTART'}),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ScoreScreen)

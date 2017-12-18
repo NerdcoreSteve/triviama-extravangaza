@@ -1,3 +1,5 @@
+import R  from 'ramda'
+
 import React from 'react'
 import {connect} from 'react-redux'
 
@@ -30,12 +32,13 @@ const StartScreen = ({changeScreen}) =>
     <Text style={styles.text}>Can you score 100%?</Text>
     <Button
       style={styles.text}
-      onPress={() => changeScreen('questions')}>BEGIN</Button>
+      onPress={() => changeScreen('questions')}>
+        BEGIN
+    </Button>
   </View>
 
-const mapStateToProps = ({}) => ({})
 const mapDispatchToProps = dispatch => ({
   changeScreen: screen => dispatch({type: 'CHANGE_SCREEN', screen}),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(StartScreen)
+export default connect(R.identity, mapDispatchToProps)(StartScreen)
