@@ -8,22 +8,10 @@ import Button from 'react-native-button'
 
 import styles from './styles'
 
-const style = {
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  boldText: {
-    ...styles.text,
-    fontWeight: 'bold'
-  }
-}
-
 const StartScreen = ({changeScreen}) =>
-  <View style={style.container}>
+  <View style={styles.container}>
     <Text
-      style={style.boldText}>
+      style={styles.boldText}>
         Welcome To The{"\n"}Trivia Challenge!
       </Text>
     <Text style={styles.text}>

@@ -1,35 +1,45 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {Text, View} from 'react-native'
+import {Text, ScrollView} from 'react-native'
 import Button from 'react-native-button'
+import {Card} from 'react-native-elements'
 
 import styles from './styles'
 
 const style = {
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'space-between',
+  buttonContainer: {
+    marginTop: 30,
   },
-  boldText: {
+  answerText: {
     ...styles.text,
-    fontWeight: 'bold'
+    marginTop: 20,
   }
 }
 
 const ScoreScreen = ({questions, score, restart}) =>
-  <View style={style.container}>
-    <Text
-      style={style.boldText}>
-        {`You scored \n${score}/${questions.length}`}
+  <ScrollView>
+    <Text style={styles.boldText}>
+      {`You scored \n${score}/${questions.length}`}
     </Text>
+    {questions.map(({question, correct_answer, got_correct_answer}) =>
+      <Card
+        containerStyle={{
+          ...styles.card,
+          borderColor: got_correct_answer ? 'green' : 'red'
+        }}>
+          <Text style={styles.text}>{question}</Text>
+          <Text style={style.answerText}>
+            {correct_answer ? 'True' : 'False'}
+          </Text>
+      </Card>)}
     <Button
       style={styles.text}
+      containerStyle={style.buttonContainer}
       onPress={restart}>
         PLAY AGAIN?
     </Button>
-  </View>
+  </ScrollView>
 
 const mapStateToProps = ({questions}) => ({
   questions,

@@ -9,27 +9,15 @@ import {Card} from 'react-native-elements'
 
 import styles from './styles'
 
-const boldText = {
-  ...styles.text,
-  fontWeight: 'bold'
-}
-
 const style = {
   container: {
-    flex: 1,
-    alignItems: 'center',
+    ...styles.container,
     justifyContent: 'flex-start',
   },
-  boldText,
   trueFalse: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     marginTop: 15,
-  },
-  card :{
-    marginTop: '10%',
-    borderWidth: 3,
-    borderRadius: 20,
   },
   pagination: {
     ...styles.text,
@@ -37,7 +25,7 @@ const style = {
     fontSize: styles.text.fontSize * (2/3),
   },
   category: {
-    ...boldText,
+    ...styles.boldText,
     marginTop: '5%'
   },
 }
@@ -60,7 +48,7 @@ const QuestionScreen =
   }) =>
     <View style={style.container}>
       <Text style={style.category}>{question.category}</Text>
-      <Card containerStyle={style.card}>
+      <Card containerStyle={styles.card}>
         <Text style={styles.text}>{question.question}</Text>
         <View style={style.trueFalse}>
           <FunctionFlagButton
