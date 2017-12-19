@@ -4,33 +4,14 @@ const validScreens = [
   'start',
   'questions',
   'score',
+  'noQuestions',
+  'loadingQuestions',
 ]
 
 const initialState = {
   screen: 'start',
   questionIndex: 0,
-  questions: [
-    {
-      category: 'Entertainment: Video Games',
-      question: 'Unturned originally started as a Roblox game.',
-      correct_answer: true,
-    },
-    {
-      category: 'Banana',
-      question: 'You are a banana',
-      correct_answer: true,
-    },
-    {
-      category: 'Shoes',
-      question: 'Pizza tastes like poo',
-      correct_answer: false,
-    },
-    {
-      category: 'Elows: friend or foe?',
-      question: 'Roll a saving throw, take half damage',
-      correct_answer: false,
-    },
-  ],
+  questions: [],
 }
 
 const addAnswer = (answer, questionIndex, questions) =>
@@ -68,6 +49,12 @@ export default (state = initialState, action) => {
       }
     case 'RESTART':
       return initialState
+    case 'GOT_QUESTIONS':
+      return {
+        ...state,
+        screen: 'questions',
+        questions: action.questions,
+      }
     default:
       return state
   }

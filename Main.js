@@ -7,12 +7,17 @@ import Header from './Header'
 import StartScreen from './StartScreen'
 import QuestionsScreen from './QuestionsScreen'
 import ScoreScreen from './ScoreScreen'
+import NoQuestionsScreen from './NoQuestionsScreen'
+import LoadingQuestionsScreen from './LoadingQuestionsScreen'
+
 import styles from './styles'
 
 const display = {
   start: <StartScreen/>,
   questions: <QuestionsScreen/>,
   score: <ScoreScreen/>,
+  noQuestions: <NoQuestionsScreen/>,
+  loadingQuestions: <LoadingQuestionsScreen/>,
 }
 
 const style = {

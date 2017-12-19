@@ -54,13 +54,13 @@ const QuestionScreen =
           <FunctionFlagButton
             text='True'
             flag={finalQuestion}
-            func1={() => answerAndGetScore(true)}
-            func2={() => answerAndGoToNextQuestion(true)}/>
+            func1={() => answerAndGetScore('True')}
+            func2={() => answerAndGoToNextQuestion('True')}/>
           <FunctionFlagButton
             text='False'
             flag={finalQuestion}
-            func1={() => answerAndGetScore(false)}
-            func2={() => answerAndGoToNextQuestion(false)}/>
+            func1={() => answerAndGetScore('False')}
+            func2={() => answerAndGoToNextQuestion('False')}/>
         </View>
       </Card>
       <Text style={style.pagination}>

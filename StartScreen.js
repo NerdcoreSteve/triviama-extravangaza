@@ -7,26 +7,30 @@ import {Text, View} from 'react-native'
 import Button from 'react-native-button'
 
 import styles from './styles'
+import {getQuestions} from './Tasks'
 
-const StartScreen = ({changeScreen}) =>
+const StartScreen = ({changeToLoadingAndGetQuestions}) =>
   <View style={styles.container}>
     <Text
       style={styles.boldText}>
         Welcome To The{"\n"}Trivia Challenge!
-      </Text>
+    </Text>
     <Text style={styles.text}>
       You Will be presented with 10 True or False Questions.
     </Text>
     <Text style={styles.text}>Can you score 100%?</Text>
     <Button
       style={styles.text}
-      onPress={() => changeScreen('questions')}>
+      onPress={changeToLoadingAndGetQuestions}>
         BEGIN
     </Button>
   </View>
 
 const mapDispatchToProps = dispatch => ({
-  changeScreen: screen => dispatch({type: 'CHANGE_SCREEN', screen}),
+  changeToLoadingAndGetQuestions: () => {
+    dispatch({type: 'CHANGE_SCREEN', screen: 'loadingQuestions'})
+    dispatch(getQuestions())
+  }
 })
 
 export default connect(R.identity, mapDispatchToProps)(StartScreen)
