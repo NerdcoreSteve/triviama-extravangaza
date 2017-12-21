@@ -9,6 +9,7 @@ import styles from './styles'
 
 const style = {
   buttonContainer: {
+    ...styles.buttonContainer,
     marginTop: 30,
   },
   answerText: {
@@ -20,7 +21,7 @@ const style = {
 const ScoreScreen = ({questions, score, restart}) =>
   <ScrollView>
     <Text style={styles.boldText}>
-      {`You scored \n${score}/${questions.length}`}
+      {`You scored \n${score} / ${questions.length}`}
     </Text>
     {questions.map(({question, correct_answer, got_correct_answer}) =>
       <Card

@@ -16,11 +16,12 @@ const StartScreen = ({changeToLoadingAndGetQuestions}) =>
         Welcome To The{"\n"}Trivia Challenge!
     </Text>
     <Text style={styles.text}>
-      You Will be presented with 10 True or False Questions.
+      You will be presented with 10 true or false questions.
     </Text>
     <Text style={styles.text}>Can you score 100%?</Text>
     <Button
       style={styles.text}
+      containerStyle={styles.buttonContainer}
       onPress={changeToLoadingAndGetQuestions}>
         BEGIN
     </Button>

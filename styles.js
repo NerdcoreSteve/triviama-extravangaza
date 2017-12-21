@@ -19,4 +19,7 @@ export default {
     alignItems: 'center',
     justifyContent: 'space-between',
   },
+  buttonContainer: {
+    padding: 20,
+  },
 }
