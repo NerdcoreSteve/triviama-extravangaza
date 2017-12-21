@@ -7,7 +7,7 @@ import {Text, View} from 'react-native'
 import Button from 'react-native-button'
 
 import styles from './styles'
-import {getQuestions} from './Tasks'
+import {createChangeToLoadingAndGetQuestions} from './dispatchFunctions'
 
 const StartScreen = ({changeToLoadingAndGetQuestions}) =>
   <View style={styles.container}>
@@ -27,10 +27,7 @@ const StartScreen = ({changeToLoadingAndGetQuestions}) =>
   </View>
 
 const mapDispatchToProps = dispatch => ({
-  changeToLoadingAndGetQuestions: () => {
-    dispatch({type: 'CHANGE_SCREEN', screen: 'loadingQuestions'})
-    dispatch(getQuestions())
-  }
+  changeToLoadingAndGetQuestions: createChangeToLoadingAndGetQuestions(dispatch)
 })
 
 export default connect(R.identity, mapDispatchToProps)(StartScreen)

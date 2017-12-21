@@ -18,5 +18,5 @@ export default {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-between',
-  }
+  },
 }

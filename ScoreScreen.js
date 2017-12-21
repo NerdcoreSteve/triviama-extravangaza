@@ -14,7 +14,7 @@ const style = {
   answerText: {
     ...styles.text,
     marginTop: 20,
-  }
+  },
 }
 
 const ScoreScreen = ({questions, score, restart}) =>
