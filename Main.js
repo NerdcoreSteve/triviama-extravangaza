@@ -12,12 +12,12 @@ import LoadingQuestionsScreen from './LoadingQuestionsScreen'
 
 import styles from './styles'
 
-const display = {
-  start: <StartScreen/>,
-  questions: <QuestionsScreen/>,
-  score: <ScoreScreen/>,
-  noQuestions: <NoQuestionsScreen/>,
-  loadingQuestions: <LoadingQuestionsScreen/>,
+const screenFunctions = {
+  start: () => <StartScreen/>,
+  questions: () => <QuestionsScreen/>,
+  score: () => <ScoreScreen/>,
+  noQuestions: () => <NoQuestionsScreen/>,
+  loadingQuestions: () => <LoadingQuestionsScreen/>,
 }
 
 const style = {
@@ -29,7 +29,7 @@ const style = {
 const Main = ({screen}) =>
   <View style={style.container}>
     <Header/>
-    {display[screen]}
+    {screenFunctions[screen]()}
   </View>
 
 const mapStateToProps = ({screen}) => ({screen})
