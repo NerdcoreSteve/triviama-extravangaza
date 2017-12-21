@@ -30,7 +30,7 @@ const ScoreScreen = ({questions, score, restart}) =>
         }}>
           <Text style={styles.text}>{question}</Text>
           <Text style={style.answerText}>
-            {correct_answer ? 'True' : 'False'}
+            {correct_answer}
           </Text>
       </Card>)}
     <Button
